@@ -1,8 +1,6 @@
 package main
 
-import (
-	"GoBestPratices/resilience"
-)
+import "GoBestPratices/pratices"
 
 // Structuring Large Go Projects
 // Follow Standard Go Project Layout (pkg/, cmd/, internal/).
@@ -26,7 +24,7 @@ func main() {
 	capTheorem.SimulateNetworkPartitionAP()
 	capTheorem.SimulateNetworkPartitionCA()
 	consistency.TwoPhaseCommit()
-	consistency.ProcessWithRedis()*/
-
-	resilience.GoCircuitBreake()
+	consistency.ProcessWithRedis()
+	resilience.GoCircuitBreake()*/
+	pratices.RunWebCrawler()
 }
