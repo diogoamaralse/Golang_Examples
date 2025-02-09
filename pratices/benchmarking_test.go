@@ -4,7 +4,8 @@ import "testing"
 
 //Use table-driven tests for readability.
 
-func BenchmarkAdd(t *testing.T) {
+// Test function (must start with "Test")
+func TestAdd(t *testing.T) {
 	tests := []struct {
 		a, b, expected int
 	}{
@@ -14,13 +15,14 @@ func BenchmarkAdd(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		result := add(tt.a, tt.b)
+		result := Add(tt.a, tt.b)
 		if result != tt.expected {
 			t.Errorf("Add(%d, %d) = %d; want %d", tt.a, tt.b, result, tt.expected)
 		}
 	}
 }
 
-func add(a, b int) int {
+// Function to be tested
+func Add(a, b int) int {
 	return a + b
 }
