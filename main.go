@@ -1,8 +1,7 @@
 package main
 
 import (
-	"GoBestPratices/capTheorem"
-	"GoBestPratices/pratices"
+	"GoBestPratices/resilience"
 )
 
 // Structuring Large Go Projects
@@ -16,7 +15,7 @@ import (
 //├── docs/       # Documentation
 
 func main() {
-	pratices.GoRoutine()
+	/*pratices.GoRoutine()
 	pratices.RunChannel()
 	pratices.ChannelGoRoutine()
 	pratices.Context()
@@ -26,4 +25,8 @@ func main() {
 	capTheorem.SimulateNetworkPartitionCP()
 	capTheorem.SimulateNetworkPartitionAP()
 	capTheorem.SimulateNetworkPartitionCA()
+	consistency.TwoPhaseCommit()
+	consistency.ProcessWithRedis()*/
+
+	resilience.GoCircuitBreake()
 }
