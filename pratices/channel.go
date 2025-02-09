@@ -3,11 +3,20 @@ package pratices
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 // Worker pool pattern for processing jobs efficiently.
 // Buffered vs. Unbuffered Channels – know when to use which.
 // Key concept: Avoid goroutine leaks by properly closing channels.
+
+//Some important notes:
+//buffered channel as example make(chan int, 5)
+//Storage: Holds up to 5 values temporarily
+//Order: FIFO (First-In-First-Out)
+//Concurrency: Safe for goroutines, blocks when full/empty
+//Blocking Behavior: Sender blocks when full, receiver blocks when empty
+
 func RunChannel() {
 	jobs := make(chan int, 5)
 	results := make(chan int, 5)
@@ -37,4 +46,18 @@ func worker(id int, jobs <-chan int, results chan<- int, wg *sync.WaitGroup) {
 		fmt.Printf("Worker %d processing job %d\n", id, job)
 		results <- job * 2
 	}
+}
+
+func ChannelGoRoutine() {
+	ch := make(chan string, 1) // Buffered channel with capacity 1
+
+	go workerGoRoutine(ch) // Start goroutine
+
+	fmt.Println("Waiting for worker...")
+	msg := <-ch // Receive message (blocks if empty)
+	fmt.Println(msg)
+}
+func workerGoRoutine(ch chan string) {
+	time.Sleep(5 * time.Second)
+	ch <- "Task done!" // Send message to channel
 }

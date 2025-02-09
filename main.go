@@ -1,6 +1,8 @@
 package main
 
-import "GoBestPratices/pratices"
+import (
+	"GoBestPratices/pratices"
+)
 
 // Structuring Large Go Projects
 // Follow Standard Go Project Layout (pkg/, cmd/, internal/).
@@ -15,6 +17,8 @@ import "GoBestPratices/pratices"
 func main() {
 	pratices.GoRoutine()
 	pratices.RunChannel()
+	pratices.ChannelGoRoutine()
 	pratices.Context()
 	pratices.ErrorHandling()
+	pratices.Optimizing()
 }
