@@ -12,10 +12,10 @@ func GoRoutine() {
 	var wg sync.WaitGroup
 	for i := 0; i < 10; i++ {
 		wg.Add(1)
-		go func(i int) {
+		go func(i int) { //<- Capture i correctly
 			defer wg.Done()
 			fmt.Println("Goroutine", i)
-		}(i)
+		}(i) // Pass i as argument
 	}
 	wg.Wait()
 

@@ -33,7 +33,7 @@ func RunChannel() {
 	close(jobs)
 
 	wg.Wait()
-	close(results)
+	close(results) // Prevents workers from waiting indefinitely
 
 	for res := range results {
 		fmt.Println("Result:", res)

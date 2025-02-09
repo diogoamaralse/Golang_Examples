@@ -1,6 +1,7 @@
 package main
 
 import (
+	"GoBestPratices/capTheorem"
 	"GoBestPratices/pratices"
 )
 
@@ -21,4 +22,8 @@ func main() {
 	pratices.Context()
 	pratices.ErrorHandling()
 	pratices.Optimizing()
+	pratices.Mutex()
+	capTheorem.SimulateNetworkPartitionCP()
+	capTheorem.SimulateNetworkPartitionAP()
+	capTheorem.SimulateNetworkPartitionCA()
 }
